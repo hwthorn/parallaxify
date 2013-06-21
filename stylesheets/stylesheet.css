@@ -337,7 +337,7 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
-.fb-like { display: block; text-align: right; }
+.fb-like { display: block!important; text-align: right; }
 
 /* #Media Queries
 ================================================== */
