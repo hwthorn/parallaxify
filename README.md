@@ -155,7 +155,7 @@ Similarly to the positioning you can write your own function to fit your needs:
 ```
 
 The following graph plots the `linear` (blue), `natural` (red), and `gaussian` (green) alogrithm for `motionAngleX: 85`:
-![plot of algorithms](http://hwthorn.github.io/parallaxify/doc/plot.png "Plot of algorithms: linear (blue), natural (red), gaussian (green)")
+![plot of algorithms](https://raw.github.com/parallaxify/master/doc/plot.png "Plot of algorithms: linear (blue), natural (red), gaussian (green)")
 
 ## License
 
