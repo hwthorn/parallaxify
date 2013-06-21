@@ -124,3 +124,7 @@ body {
     display: block;
     margin-top: 2em;
 }
+
+.fb-like {
+    float: right;
+}
