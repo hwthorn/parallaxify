@@ -5,9 +5,6 @@
  * Copyright 2013, Felix Pflaum
  * Released under the MIT license
  * http://hwthorn.mit-license.org
- *
- * Thanks to
- * - Mark Dalgleish (http://markdalgleish.com/projects/stellar.js) for inspiration
  */
 
  ;(function($, window, document, undefined) {
