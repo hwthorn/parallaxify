@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Parallaxify by hwthorn</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Parallaxify</h1>
+          <h2>parallaxify is a jQuery plugin that adds parallax effects to elements and backgrounds based on gyroscope sensor or mouse input</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/hwthorn/parallaxify/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/hwthorn/parallaxify/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/hwthorn/parallaxify" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="parallaxify" class="anchor" href="#parallaxify"><span class="octicon octicon-link"></span></a>Parallaxify</h1>
+
+<h3>
+<a name="add-depth-to-your-project" class="anchor" href="#add-depth-to-your-project"><span class="octicon octicon-link"></span></a>add depth to your project</h3>
+
+<p><em>parallaxify</em> is a jQuery plugin that adds parallax effects to elements and backgrounds based on gyroscope sensor (device orientation) data or mouse movement. Due to the recent hype started due to the introduction of a parallax effect in iOS 7, I created a plugin that allows anyone to easily incorporate parallax effects to their websites.</p>
+
+<h2>
+<a name="demos" class="anchor" href="#demos"><span class="octicon octicon-link"></span></a>Demos</h2>
+
+<ul>
+<li><a href="http://hwthorn.github.io/parallaxify/demo/galaxy.html">Galaxy</a></li>
+<li><a href="http://hwthorn.github.io/parallaxify/demo/ios.html">iOS 7 MockUp</a></li>
+</ul><h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>Get the <a href="https://raw.github.com/hwthorn/parallax/master/jquery.parallax.js">development</a> or <a href="https://raw.github.com/hwthorn/parallax/master/jquery.parallax.js">production</a> version here.</p>
+
+<h2>
+<a name="get-things-going" class="anchor" href="#get-things-going"><span class="octicon octicon-link"></span></a>Get things going</h2>
+
+<p>In order to add a parallax effect to any element you can run <code>.parralaxify()</code> on the element or run it globally on 'window':</p>
+
+<div class="highlight"><pre>    <span class="c1">// Run it on single element</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#my-element'</span><span class="p">).</span><span class="nx">parallaxify</span><span class="p">();</span>
+    <span class="c1">// or globally</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">parallaxify</span><span class="p">();</span>
+</pre></div>
+
+<p>The horizontal and vertical distances that each element can or should travel can be defined through attributes as follows:</p>
+
+<div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">data-parallaxify-range-x=</span><span class="s">"100"</span> <span class="na">data-parallaxify-range-y=</span><span class="s">"50"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>You can also use the shorthand attribute <code>data-parallaxify-range</code> to set x and y range with one setting. In a similar way you can set backgrounds to reposition based on the input.</p>
+
+<div class="highlight"><pre>    <span class="nt">&lt;div</span> <span class="na">data-parallaxify-background-range=</span><span class="s">"100"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>All available attributes:</p>
+
+<ul>
+<li><code>data-parallaxify-range</code></li>
+<li><code>data-parallaxify-range-x</code></li>
+<li><code>data-parallaxify-range-y</code></li>
+<li><code>data-parallaxify-background-range</code></li>
+<li><code>data-parallaxify-background-range-x</code></li>
+<li><code>data-parallaxify-background-range-y</code></li>
+</ul><h2>
+<a name="fine-tuning-the-plugin" class="anchor" href="#fine-tuning-the-plugin"><span class="octicon octicon-link"></span></a>Fine tuning the plugin</h2>
+
+<p><em>parallaxify</em> exposes a variety of options that let you influence how element positioning is achieved, configure filtering of sensor data, configure the movement algorithm, and change general plugin settings.</p>
+
+<p>These are all settings that can be configured as part of the plugin:</p>
+
+<div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">parallaxify</span><span class="p">({</span>
+        <span class="c1">// enable parallax effect for horizontal, vertical or both directions</span>
+        <span class="nx">horizontalParallax</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">verticalParallax</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+        <span class="c1">// enable or disable parallax effect for elements or backgrounds</span>
+        <span class="nx">parallaxBackgrounds</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">parallaxElements</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+        <span class="c1">// set which positioning property is to be used</span>
+        <span class="c1">// options include 'position' or 'transform' using css transformations</span>
+        <span class="nx">positionProperty</span><span class="o">:</span> <span class="s1">'position'</span><span class="p">,</span>
+
+        <span class="c1">// enable for responsive layouts</span>
+        <span class="c1">// (upon orientation changes or window resizing element positions are reevaluated</span>
+        <span class="nx">responsive</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+
+        <span class="c1">// enable or disable mouse or gyroscope data as input for the plugin</span>
+        <span class="nx">useMouseMove</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">useGyroscope</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+        <span class="c1">// use a Low Pass Filter to smooth sensor readings (1 = no filter)</span>
+        <span class="nx">alphaFilter</span><span class="o">:</span> <span class="mf">0.9</span><span class="p">,</span>
+
+        <span class="c1">// set which motion type algorithm is to be used</span>
+        <span class="c1">// options include 'natural', 'linear', 'gaussian', or 'performance'</span>
+        <span class="nx">motionType</span><span class="o">:</span> <span class="s1">'natural'</span><span class="p">,</span>
+        <span class="nx">mouseMotionType</span><span class="o">:</span> <span class="s1">'gaussian'</span><span class="p">,</span>
+
+        <span class="c1">// define the delta angle (0 &lt; motionAngle &lt; 90) </span>
+        <span class="c1">// that is used to render max parallax in this direction</span>
+        <span class="nx">motionAngleX</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+        <span class="nx">motionAngleY</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+
+        <span class="c1">// enable of adjustment of base position (using a Low Pass Filter)</span>
+        <span class="c1">// (adapting to device usage while plugin is running)</span>
+        <span class="nx">adjustBasePosition</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="c1">// alpha for Low Pass Filter used to adjust average position</span>
+        <span class="nx">alphaPosition</span><span class="o">:</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="positioning" class="anchor" href="#positioning"><span class="octicon octicon-link"></span></a>Positioning</h3>
+
+<p><em>parallaxify</em> allows you to control how elements are repositioned. Out of the box you can choose between positioning via <code>top: 0px; left: 0px</code> properties or CSS3 transformations. You can also extend this by writing your function.</p>
+
+<div class="highlight"><pre>    <span class="c1">// enable parallaxify with CSS3 transformations for positioning</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">parallaxify</span><span class="p">({</span>
+        <span class="nx">positionProperty</span><span class="o">:</span> <span class="s1">'transform'</span>
+        <span class="p">});</span>
+
+    <span class="c1">// defining your own positioning function</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">parallaxify</span><span class="p">.</span><span class="nx">positionProperty</span><span class="p">.</span><span class="nx">rotate</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">setPosition</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$element</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">originalLeft</span><span class="p">,</span> <span class="nx">top</span><span class="p">,</span> <span class="nx">originalTop</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$element</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">'transform'</span><span class="p">,</span> <span class="s1">'rotateX('</span> <span class="o">+</span> <span class="nx">left</span> <span class="o">+</span> <span class="s1">'deg) rotateY('</span> <span class="o">+</span> <span class="nx">top</span> <span class="o">+</span> <span class="s1">'deg)'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="c1">// using your own positioning function</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#other'</span><span class="p">).</span><span class="nx">parallaxify</span><span class="p">({</span>
+        <span class="nx">positionProperty</span><span class="o">:</span> <span class="s1">'rotate'</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="motion-algorithms" class="anchor" href="#motion-algorithms"><span class="octicon octicon-link"></span></a>Motion algorithms</h3>
+
+<p>In order to control how the input data (i.e. the mouse movement or the gyroscope sensor data) influences the repositioning of the elements and backgrounds you can use one of the pre-defined <code>motionType</code> or write your own algorithm. <code>motionType</code> and <code>mouseMotionType</code> allow you to configure the behavior for gyroscope and mouse input separately.</p>
+
+<ul>
+<li>  <code>linear</code> algorithm
+Nothing more to say. The elements are repositioned linearly with the movement, reaching the maximum displacement at the defined <code>motionAngleX</code> and <code>motionAngleY</code> maximum angles (and remain at that position beyond these angles);</li>
+<li>  <code>natural</code> algorithm
+Natural movment uses a tangent function to calulate the repositioning. This is your number one choice if you want to create an effect similar to the iOS 7 home screen. Remember to set the maximum angles (<code>motionAngleX</code> and <code>motionAngleY</code>) accordingly. Good choices here are probably <code>80</code> for both. Keep in mind that if you set the angles too low, that the movement will stop at these angles.</li>
+<li>  <code>gaussian</code> algorithm
+Here we use an approximation to the Gaussian Cumulative Distribution function (short CDF). The displacement is large at small angles (or mouse movements at the screen center) and is almost unnoticeable at large angles (or mouse movements close to the screen border).</li>
+<li>  <code>performance</code> algorithm
+An approximation to the tangent function that is intended to speed up calculation in javascript and hence have a slightly better performance</li>
+</ul><p>Similarly to the positioning you can write your own function to fit your needs:</p>
+
+<div class="highlight"><pre>    <span class="c1">// enable parallaxify with natural motion (based on sensor data) and the gaussian algorithm for mouse movement</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">parallaxify</span><span class="p">({</span>
+        <span class="nx">motionType</span><span class="o">:</span> <span class="s1">'natural'</span><span class="p">,</span>
+        <span class="nx">mouseMotionType</span><span class="o">:</span> <span class="s1">'gaussian'</span>
+        <span class="p">});</span>
+
+    <span class="c1">// defining your own motion type</span>
+    <span class="c1">// example for linear motion</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">parallaxify</span><span class="p">.</span><span class="nx">motionType</span><span class="p">.</span><span class="nx">linear</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="nx">deltaMax</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="nx">deltaMax</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">delta</span> <span class="o">&gt;=</span> <span class="nx">deltaMax</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="o">-</span><span class="nx">delta</span><span class="o">/</span><span class="nx">deltaMax</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="c1">// using the linear positioning function</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#other'</span><span class="p">).</span><span class="nx">parallaxify</span><span class="p">({</span>
+        <span class="nx">positionProperty</span><span class="o">:</span> <span class="s1">'linear'</span>
+    <span class="p">});</span>
+</pre></div>
+
+<p>The following graph plots the <code>linear</code> (blue), <code>natural</code> (red), and <code>gaussian</code> (green) alogrithm for <code>motionAngleX: 85</code>:
+<img src="http://raw.github.com/hwthorn/parallaxify/master/doc/plot.png" alt="plot of algorithms" title="Plot of algorithms: linear (blue), natural (red), gaussian (green)"></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Released under the MIT license.
+<a href="http://hwthorn.mit-license.org">http://hwthorn.mit-license.org</a></p>
+
+<h2>
+<a name="thanks" class="anchor" href="#thanks"><span class="octicon octicon-link"></span></a>Thanks</h2>
+
+<p>Having seen Mark Dalgleish' parallax scrolling plugin <a href="http://markdalgleish.com/projects/stellar.js">stellar.js</a> I got inspired and built parallaxify based on his plugin.</p>
+        </section>
+
+        <footer>
+          Parallaxify is maintained by <a href="https://github.com/hwthorn">hwthorn</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-41915731-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
