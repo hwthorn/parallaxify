@@ -10,7 +10,7 @@
 
 ## Download
 
-Get the [minified](https://raw.github.com/hwthorn/parallaxify/master/jquery.parallax.min.js) version or the [source](https://raw.github.com/hwthorn/parallaxify/master/jquery.parallax.js) here.
+Get the [minified](https://raw.github.com/hwthorn/parallaxify/master/jquery.parallaxify.min.js) version or the [source](https://raw.github.com/hwthorn/parallaxify/master/jquery.parallaxify.js) here.
 
 ## Get things going
 
