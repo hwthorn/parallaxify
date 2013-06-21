@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
 html,
 body,
 div,
@@ -31,6 +33,7 @@ h6 {
 body {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
+    font-family: "Open Sans", sans-serif;
     background: #000;
     width: 100%;
     height: 100%;
@@ -55,6 +58,69 @@ body {
     height: 100%;
     width: 100%;
     background: transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
     overflow: hidden;
     z-index: 1;
+}
+
+.star {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0px 0px 10px rgba(255,255,255,0.75);
+}
+
+#info {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    height: 250px;
+    width: 250px;
+    padding: 25px;
+    margin-top: -125px;
+    margin-left: 0px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 25px;
+    color: #fff;
+}
+
+#info h1 {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0px 0px 1px rgba(34,34,34,0.25);
+    padding-bottom: 1.5em;
+}
+
+#info h1 em {
+    font-size: 12px;
+    line-height: 12px;
+    display: block;
+}
+
+#info a.github {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    border-radius: 13px;
+    background: #4183c4 url('../img/github-128.png') center center no-repeat;
+    background-size: 64px 64px;
+    -webkit-background-size: 64px 64px;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin-right: 6px;
+}
+
+#info small {
+    font-size: 9px;
+    line-height: 12px;
+    display: block;
+    margin-top: 2em;
 }

@@ -3,6 +3,12 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta content="parallaxify - jQuery plugin" property="og:title">
+    <meta content="parallaxify" property="og:site_name">
+    <meta content="http://hwthorn.github.io/parallaxify/" property="og:url">
+    <meta content="website" property="og:type">
+    <meta content="parallaxify: Use gyroscope or mouse input to create slick parallax effects on your website." property="og:description">
+
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
@@ -23,10 +29,12 @@
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://github.com/hwthorn/parallaxify/zipball/master" id="download-zip" class="button" data-parallaxify-range="24"><span>Download .zip</span></a>
-          <a href="https://github.com/hwthorn/parallaxify/tarball/master" id="download-tar-gz" class="button" data-parallaxify-range="8"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/hwthorn/parallaxify" id="view-on-github" class="button" data-parallaxify-range="-8"><span>View on GitHub</span></a>
+          <a href="https://github.com/hwthorn/parallaxify/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/hwthorn/parallaxify/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/hwthorn/parallaxify" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
+          
+          <div class="fb-like" data-href="http://hwthorn.github.io/parallaxify" data-send="true" data-layout="box_count" data-width="250" data-show-faces="true" data-font="arial"></div>
 
         <hr>
 
@@ -234,6 +242,15 @@ An approximation to the tangent function that is intended to speed up calculatio
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+          
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
 
       </div>
     </div>
