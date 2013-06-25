@@ -196,11 +196,14 @@
 				mouseMoveAdapter = motionType[self.options.mouseMotionType];
 
 			this._getMoveHorizontal = function() {
-				
+
 				if (this.useMouseMove && this.clientX !== null && this.clientX !== this.oldClientX ) {
+					if (this.useSensor && this.options.inputPriority === 'mouse') {
+						this.useSensor = this.useSensorMoz = this.useSensorWebkit = false;
+					}
 					return mouseMoveAdapter( this.options.motionAngleX * (1 - (2*this.clientX/this.viewportWidth)), this.options.motionAngleX);
 				}
-				
+
 				if (this.useSensor && this.beta !== null && this.gamma !== null) {
 				// output = 2*gCDFApprox(tilt/180, 0.75*90/(0.5*this.options.motionAngle))-1;
 				// -180 < tilt < 180 => multiply beta x 2
@@ -228,16 +231,19 @@
 				} else {
 					this.useSensor = false;
 				}
-				
+
 				return mouseMoveAdapter( this.options.motionAngleX * (1 - (2*this.oldClientX/this.viewportWidth)), this.options.motionAngleX);
 			};
 
 			this._getMoveVertical = function() {
-				
+
 				if (this.options.useMouseMove && this.clientY !== null && this.clientY !== this.oldClientY ) {
+					if (this.useSensor && this.options.inputPriority === 'mouse') {
+						this.useSensor = this.useSensorMoz = this.useSensorWebkit = false;
+					}
 					return mouseMoveAdapter( this.options.motionAngleY * (1 - (2*this.clientY/this.viewportHeight)), this.options.motionAngleY);
 				}
-				
+
 				if (this.useSensor && this.beta !== null && this.gamma !== null) {
 
 					// tilt.gamma and tilt.beta
@@ -263,13 +269,13 @@
 				} else {
 					this.useSensor = false;
 				}
-				
+
 				return mouseMoveAdapter( this.options.motionAngleY * (1 - (2*this.oldClientY/this.viewportHeight)), this.options.motionAngleY);
 			};
 
 		},
 		_defineSetters: function() {
-		
+
 		// define setters
 		// set position of elements
 
@@ -286,7 +292,7 @@
 						positionPropertyAdapter.setTop($element, top, originalTop);
 					}
 				};
-				
+
 		},
 		refresh: function(options) {
 			if (!options || !options.firstLoad) {
@@ -333,11 +339,6 @@
 			if (this.options.useMouseMove) {
 				this.useMouseMove = this.$viewportElement.mousemove !== undefined;
 			}
-			if (this.useMouseMove && this.options.inputPriority === 'mouse') {
-				this.useSensor = this.useSensorMoz = this.useSensorWebkit = false;
-			} else if (this.useGyroscope && this.options.inputPriority === 'gyroscope') {
-				this.useMouseMove = false;
-			}
 		},
 		_findElements: function() {
 			var self = this;
@@ -354,7 +355,7 @@
 
 			this.$element.find('[data-parallaxify-range],[data-parallaxify-range-x],[data-parallaxify-range-y]').each(function(i) {
 				var $this = $(this);
-				
+
 				if (!$this.data('parallaxify-ElementIsActive')) {
 					$this.data('parallaxify-ElementIsActive', this);
 				} else if ($this.data('parallaxify-ElementIsActive') !== this) {
@@ -478,17 +479,23 @@
 			// counteract some bugs on Android where return values are 270 upon flipping the device
 			if (beta > 90) beta = beta - 180;
 			if (gamma > 180) gamma = gamma - 360;
-				
+
 			if (this.initialBeta === undefined && beta !== null) {
 				this.initialBeta = beta;
+				if (this.useSensor && this.options.inputPriority === 'gyroscope') {
+					this.useMouseMove = false;
+				}
 			}
 
 			if (this.initialGamma === undefined && gamma !== null) {
 				this.initialGamma = gamma;
+				if (this.useSensor && this.options.inputPriority === 'gyroscope') {
+					this.useMouseMove = false;
+				}
 			}
 
 			if (this.options.adjustBasePosition && this.initialGamma !== undefined && this.initialBeta !== undefined) {
-			
+
 				// adjust positions (accepting position out of range to smooth laying device upside down)
 				if (gamma - this.initialGamma < -180) {
 					this.initialGamma = lowPassFilter(gamma + 360, this.initialGamma, this.options.alphaPosition);
@@ -497,7 +504,7 @@
 				} else {
 					this.initialGamma = lowPassFilter(gamma, this.initialGamma, this.options.alphaPosition);
 				}
-				
+
 				if (beta - this.initialBeta < -90) {
 					this.initialBeta = lowPassFilter(beta + 180, this.initialBeta, this.options.alphaPosition);
 				} else if (beta - this.initialBeta > 90) {
@@ -507,10 +514,10 @@
 				}
 
 			}
-			
+
 			deltaBeta = (this.initialBeta !== undefined ? beta - this.initialBeta : beta);
 			deltaGamma = (this.initialGamma !== undefined ? gamma - this.initialGamma : gamma);
-			
+
 			if (deltaBeta > 100) {
 				deltaBeta = deltaBeta - 180;
 			} else if (deltaBeta < -100) {
@@ -522,7 +529,7 @@
 			} else if (deltaGamma < -200) {
 				deltaGamma = deltaGamma + 360;
 			}
-			
+
 			// use low pass filter on signal
 			deltaBeta = lowPassFilter(deltaBeta, this.tilt.beta, this.options.alphaFilter);
 			deltaGamma = lowPassFilter(deltaGamma, this.tilt.gamma, this.options.alphaFilter);
@@ -627,7 +634,6 @@
 			var requestTick = function() {
 				if (!ticking) {
 					requestAnimationFrame(update);
-					
 					ticking = true;
 				}
 			};
@@ -715,4 +721,3 @@
 	// Expose the plugin class so it can be modified
 	window[pluginName] = Plugin;
 }(jQuery, this, document));
-
