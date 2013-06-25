@@ -79,6 +79,10 @@ These are all settings that can be configured as part of the plugin:
         // options include 'natural', 'linear', 'gaussian', or 'performance'
         motionType: 'natural',
         mouseMotionType: 'gaussian',
+		
+		// define which sensor input has priority over the other
+		// options are either 'mouse' or 'gyroscope'
+		inputPriority: 'mouse',
         
         // define the delta angle (0 < motionAngle < 90) 
         // that is used to render max parallax in this direction

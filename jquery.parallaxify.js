@@ -1,5 +1,5 @@
 /*!
- * Parallaxify.js v0.0.1
+ * Parallaxify.js v0.0.2
  * http://hwthorn.github.io/parallaxify
  *
  * Copyright 2013, Felix Pflaum
@@ -26,10 +26,11 @@
 			alphaFilter: 0.9,			// use Low Pass Filter to smooth sensor readings (1 = no filter)
 			motionType: 'natural',
 			mouseMotionType: 'gaussian',
+			inputPriority: 'mouse',		// define which input device has priority over the other 'mouse' or 'gyroscope'
 			motionAngleX: 80,			// (0 < motionAngle < 90) delta angle that is used to render max parallax in this direction
 			motionAngleY: 80,
 			adjustBasePosition: true,	// using Low Pass Filter to adjust base position
-			alphaPosition: 0.05,		// alpha for Low Pass Filter used to adjust average position
+			alphaPosition: 0.05			// alpha for Low Pass Filter used to adjust average position
 		},
 
 		// Options for positioning of elements
@@ -166,7 +167,7 @@
 			this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
 			this.tilt = {
 				beta : 0,
-				gamma : 0,
+				gamma : 0
 			};
 
 			this._defineElements();
@@ -331,6 +332,11 @@
 			}
 			if (this.options.useMouseMove) {
 				this.useMouseMove = this.$viewportElement.mousemove !== undefined;
+			}
+			if (this.useMouseMove && this.options.inputPriority === 'mouse') {
+				this.useSensor = this.useSensorMoz = this.useSensorWebkit = false;
+			} else if (this.useGyroscope && this.options.inputPriority === 'gyroscope') {
+				this.useMouseMove = false;
 			}
 		},
 		_findElements: function() {
