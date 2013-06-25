@@ -78,12 +78,12 @@ body {
 #info {
     position: absolute;
     top: 50%;
-    left: 10%;
-    height: 250px;
+    left: 50%;
+    height: 200px;
     width: 250px;
     padding: 25px;
     margin-top: -125px;
-    margin-left: 0px;
+    margin-left: -550px;
     background: rgba(0,0,0,0.85);
     border-radius: 25px;
     color: #fff;
