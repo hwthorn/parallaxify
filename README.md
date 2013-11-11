@@ -14,13 +14,26 @@ Get the [minified](https://raw.github.com/hwthorn/parallaxify/master/jquery.para
 
 ## Get things going
 
-In order to add a parallax effect to any element you can run `.parralaxify()` on the element or run it globally on 'window':
+In order to add a parallax effect to any element you can run `.parallaxify()` on the element or run it globally on 'window':
 
 ``` js
     // Run it on single element
     $('#my-element').parallaxify();
     // or globally
     $.parallaxify();
+```
+
+You can also run `.parallaxify()` on the fly, e.g. for hover effects and destroy the instance on blur using the built-in destroy method (Thanks to [matlembo](https://github.com/matlembo) for pointing out the following example - see https://github.com/hwthorn/parallaxify/issues/2 ):
+
+``` js
+$('#my-element').hover(
+    function(){
+        $(this).parallaxify(args);
+    },
+    function(){
+        $(this).parallaxify('destroy');
+    }
+);
 ```
 
 The horizontal and vertical distances that each element can or should travel can be defined through attributes as follows:
