@@ -164,7 +164,7 @@
 
 	Plugin.prototype = {
 		init: function() {
-			this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
+			this.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
 			this.tilt = {
 				beta : 0,
 				gamma : 0
