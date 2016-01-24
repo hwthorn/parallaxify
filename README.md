@@ -14,11 +14,11 @@ Get the [minified](https://raw.github.com/hwthorn/parallaxify/master/jquery.para
 
 ## Get things going
 
-In order to add a parallax effect to any element you can run `.parallaxify()` on the element or run it globally on 'window':
+In order to add a parallax effect to any element you can run `.parallaxify()` on the wrapper of an element or run it globally on 'window':
 
 ``` js
     // Run it on single element
-    $('#my-element').parallaxify();
+    $('#my-wrapper').parallaxify();
     // or globally
     $.parallaxify();
 ```
