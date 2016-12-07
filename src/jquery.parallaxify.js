@@ -1,8 +1,8 @@
 /*!
- * Parallaxify.js v0.0.2
+ * Parallaxify.js v0.0.3
  * http://hwthorn.github.io/parallaxify
  *
- * Copyright 2013, Felix Pflaum
+ * Copyright 2016, Felix Pflaum
  * Released under the MIT license
  * http://hwthorn.mit-license.org
  *
@@ -297,7 +297,7 @@
 			this._findBackgrounds();
 			// Fix for WebKit background rendering bug
 			if (options && options.firstLoad && /WebKit/.test(navigator.userAgent)) {
-				$(window).load(function() {
+				$(window).on('load', function() {
 					var $el = $('body');
 						oldLeft = $el.scrollLeft();
 						oldTop = $el.scrollTop();
