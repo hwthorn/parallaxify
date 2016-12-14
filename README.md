@@ -1,5 +1,6 @@
 # Parallaxify
 ### add depth to your project
+[![CDNJS](https://img.shields.io/cdnjs/v/parallaxify.svg)](https://cdnjs.com/libraries/parallaxify)
 
 *parallaxify* is a jQuery plugin that adds parallax effects to elements and backgrounds based on gyroscope sensor (device orientation) data or mouse movement. Due to the recent hype started due to the introduction of a parallax effect in iOS 7, I created a plugin that allows anyone to easily incorporate parallax effects to their websites.
 
